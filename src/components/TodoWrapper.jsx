@@ -7,6 +7,9 @@ uuidv4();
 
 const TodoWrapper = () => {
   const [todos , setTodos] = useState([])
+  useEffect(() => { 
+    localStorage.setItem('todos' , JSON.stringify(todos)) 
+  } , [todos]);
   const addTodo = todo => {
     setTodos([...todos , {id: uuidv4() , task: todo , completed: false , isEditing: false}])
   } 
